@@ -27,4 +27,30 @@ if defined?(Rails)
       end
     end
   end
+
+  module ActionView
+    # das funktioniert so nicht.
+    # class Base
+    #   class Jail < Safemode::Jail
+    #     allow :output_buffer
+    #   end
+    # end
+    #
+    # hooks um den debugger einzubinden
+    # class Base
+    #   def output_buffer
+    #     debugger
+    #     @output_buffer
+    #   end
+    # end
+    # module Helpers
+    #   module TextHelper
+    #     def concat( string, s = nil )
+    #       raise "no bindings to concat anymore, please" if s
+    #       debugger
+    #       output_buffer << string
+    #     end
+    #   end
+    # end
+  end
 end
