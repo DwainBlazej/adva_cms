@@ -1,3 +1,6 @@
+# -*- encoding: utf-8 -*-
+# Ruby v1.9 needs the above line because this source file is not 7-bit ASCII.
+
 module LuckySneaks
   # These methods are all added on String class.
   module StringExtensions

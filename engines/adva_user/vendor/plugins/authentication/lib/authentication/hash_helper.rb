@@ -1,4 +1,8 @@
-require 'sha1'
+if RUBY_VERSION >= '1.9.0'
+  require 'digest/sha1'
+else
+  require 'sha1'
+end
 
 module Authentication
 

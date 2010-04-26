@@ -11,7 +11,13 @@ module RoutingFilter
     end
 
     def run(method, *args, &block)
-      successor = @successor ? lambda { @successor.run(method, *args, &block) } : block
+      if RUBY_VERSION >= '1.9.0'
+        # Unlike Ruby v1.8, Ruby 1.9 actually enforces the arity of procs created with lambda.
+        # http://github.com/svenfuchs/adva_cms/issues#issue/8
+        successor = @successor ? proc {|path, env| @successor.run(method, *args, &block) } : block
+      else
+        successor = @successor ? lambda { @successor.run(method, *args, &block) } : block
+      end
       active ? send(method, *args, &successor) : successor.call(*args)
     end
   end

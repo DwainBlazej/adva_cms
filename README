@@ -20,8 +20,12 @@ Installation: Release 0.3.1
 
 Required: Rails >= 2.3.4, ImageMagick for image handling
 
-# install Rails >= 2.3.4 gems if you don't have them already
-  sudo gem install rails --version 2.3.4
+# install Rails >= 2.3.4 and related gems if you don't have them already
+  sudo gem install rails --version '>=2.3.4'
+  sudo gem install bluecloth RedCloth rubypants
+
+  To install ImageMagick on an Ubuntu system run:
+  aptitude install graphicsmagick-imagemagick-compat
 
 # install and setup adva-cms using a template
   rails my-app -m http://github.com/svenfuchs/adva_cms/raw/master/templates/adva-cms.0.3.1.rb
@@ -51,8 +55,12 @@ Installation: Edge version using rails template
 
 Required: Rails >= 2.3.4, ImageMagick for image handling
 
-# install Rails >= 2.3.4 gems if you don't have them already
-  sudo gem install rails --version 2.3.4
+# install Rails >= 2.3.4 and related gems if you don't have them already
+  sudo gem install rails --version '>=2.3.4'
+  sudo gem install bluecloth RedCloth rubypants
+
+  To install ImageMagick on an Ubuntu system run:
+  aptitude install graphicsmagick-imagemagick-compat
 
 # install and setup adva-cms using a template
   rails my-app -m http://github.com/svenfuchs/adva_cms/raw/master/templates/adva-cms.master.rb
