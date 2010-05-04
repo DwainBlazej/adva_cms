@@ -50,6 +50,8 @@ patch_file 'config/initializers/new_rails_defaults.rb',
 ENV['ADVA_CMS_GIT_BRANCH'] ||= "git://github.com/svenfuchs/adva_cms.git"
 git :clone => "#{ENV['ADVA_CMS_GIT_BRANCH']} vendor/adva # this might take a bit, grab a coffee meanwhile :)"
 
+rake db:migrate
+
 rake 'adva:install:core -R vendor/adva/engines/adva_cms/lib/tasks'
 
 puts <<-end
@@ -61,6 +63,7 @@ We've performed the following tasks:
 * created a fresh Rails app
 * cloned adva-cms to vendor/adva
 * patched config/environment.rb and config/initializers/new_rails_defaults.rb
+* ran new database migrations
 * installed adva-cms' core engines to vendor/plugins
 * installed adva-cms' images, javascripts, stylesheets to public/
 
