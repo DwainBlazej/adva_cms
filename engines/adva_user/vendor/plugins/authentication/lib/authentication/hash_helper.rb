@@ -16,7 +16,12 @@ module Authentication
     # AUTHENTICATION_SALT. If not defined then the installation
     # directory of the application will be used as the site salt.
     def hash_string(string, salt=site_salt)
-      SHA1.sha1("#{salt}---#{string}").to_s
+      salt = "#{salt}---#{string}"
+      if RUBY_VERSION >= '1.9.0'
+        Digest::SHA1.hexdigest(salt)
+      else
+        SHA1.sha1(salt).to_s
+      end
     end
 
     private
