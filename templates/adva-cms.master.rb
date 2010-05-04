@@ -47,7 +47,8 @@ patch_file 'config/initializers/new_rails_defaults.rb',
 #ActionController::Routing.generate_best_match = false",
   :patch_mode => :insert_before
 
-git :clone => 'git://github.com/svenfuchs/adva_cms.git vendor/adva # this might take a bit, grab a coffee meanwhile :)'
+ENV['ADVA_CMS_GIT_BRANCH'] ||= "git://github.com/svenfuchs/adva_cms.git"
+git :clone => "#{ENV['ADVA_CMS_GIT_BRANCH']} vendor/adva # this might take a bit, grab a coffee meanwhile :)"
 
 rake 'adva:install:core -R vendor/adva/engines/adva_cms/lib/tasks'
 
